@@ -10,12 +10,14 @@
 /// @return Группа студента
 group_t GetGroup(group_t *groups, student_t student, int group_count)
 {
+    // Проходимся по группам
     for (int i = 0; i < group_count; i++)
     {
         group_t group = groups[i];
-
+        // Проходимся по студентам
         for (int j = 0; j < group.student_count; j++)
         {
+            // Если нашли студента в группе, выводим группу
             if (group.students[j].user.id == student.user.id)
             {
                 return group;
@@ -37,7 +39,7 @@ double AvgStudentMark(student_mark_t *marks, student_t student, int mark_count)
     for (int i = 0; i < mark_count; i++)
     {
         student_mark_t mark = marks[i];
-
+        
         if (mark.student.user.id == student.user.id)
         {
             sum += mark.mark;
@@ -107,6 +109,8 @@ double AvgGroupMarkByDiscipline(student_mark_t *marks, group_t *groups, group_t 
 
 int main()
 {
+    // Заполняем структуры данными //
+    
     // Дисциплины
     discipline_t disciplines[] = {
         DisciplineInit(1, "Информатика"),
